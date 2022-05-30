@@ -1,0 +1,556 @@
+<%- include('../partials/header')%>
+
+
+    <!--slider section start-->
+    <div class="hero-section section position-relative">
+        <div class="hero-slider section">
+
+            <!--Hero Item start-->
+            <div class="hero-item large-height bg-image" data-bg="data/upload/slider1.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+
+                            <!--Hero Content start-->
+                            <div class="hero-content-2 margin-top center">
+
+                                <!-- <h2>Creative Design <br> Modern & Exclusive Furniture</h2>
+                                <a href="shop.html" class="btn">SHOP NOW</a> -->
+
+                            </div>
+                            <!--Hero Content end-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Hero Item end-->
+
+            <!--Hero Item start-->
+            <div class="hero-item large-height bg-image" data-bg="data/upload/slider2.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+
+                            <!--Hero Content start-->
+                            <div class="hero-content-2 margin-top center">
+
+                                <!-- <h2>Creative Design <br> Modern & Exclusive Furniture</h2> -->
+                                <!-- <a href="shop.html" class="btn">SHOP NOW</a> -->
+
+                            </div>
+                            <!--Hero Content end-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Hero Item end-->
+
+        </div>
+    </div>
+    <!--slider section end-->
+
+
+
+
+    <!-- Banner section start -->
+    <div class="banner-section section pt-30">
+        <div class="container">
+            <div class="row">
+                <%
+                viewAll.forEach((e)=>{%>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <!-- Single Banner Start -->
+                        <div class="single-banner-item mb-30">
+                            <div class="banner-image">
+                                <a href="/category/<%=e.id %>/products">
+                                    <img src="data/upload/<%=e.img%>"  style="height:400px ;" alt="no img">
+                                </a>
+                            </div>
+                            <div class="banner-content tr-right">
+                                <h3 class="title">
+                                    <%=e.name %>
+                                </h3>
+                                <a href="/category/<%=e.id %>/products">SHOP NOW</a>
+                            </div>
+                        </div>
+                        <!-- Single Banner End -->
+                    </div>
+                    <%}) %>
+
+            </div>
+        </div>
+    </div>
+    <!-- Banner section End -->
+
+
+    <!--Product section start-->
+    <div class="product-section section pt-70 pt-lg-50 pt-md-40 pt-sm-30 pt-xs-20 pb-55 pb-lg-35 pb-md-25 pb-sm-15 pb-xs-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section-title text-center mb-15">
+                        <h2>Featured Products</h2>
+                    </div>
+                    <div class="product-tab mb-50 mb-sm-30 mb-xs-20">
+                        <ul class="nav">
+                            <li><a class="active show" data-toggle="tab" href="#home">HOME</a></li>
+                            <li><a data-toggle="tab" href="#office">products</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade active show">
+                    <div class="row">
+                        <% fetured.forEach((e)=>{%>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <!--  Single Grid product Start -->
+
+
+
+                                <div class=" single-grid-product mb-40 ">
+                                    <div class="product-image ">
+                                        <div class="product-label ">
+                                            <span>-20%</span>
+                                        </div>
+                                        <a href="single-product.html ">
+                                <img src="data/upload/<%=e.product_image.defaul_image%>" style="height:300px ;" class="img-fluid" alt="no">
+                                <img src="data/upload/<%=e.product_image.defaul_image%>" style="height:300px ;" class="img-fluid" alt="">
+                                </a>
+
+                                        <div class="product-action">
+                                            <ul>
+                                                <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
+                                                <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title">
+                                            <a href="/category/<%=e.id %>/products">
+                                                <%=e.name%>
+                                            </a>
+                                        </h3>
+                                        <p class="product-price"><span class="discounted-price">$<%=e.price%></span>
+                                            <!-- <span class="main-price discounted">$230.00</span> -->
+                                        </p>
+                                    </div>
+                                </div>
+                                <!--  Single Grid product End -->
+                            </div>
+                            <%  }) %>
+
+                    </div>
+                </div>
+                <div id="office" class="tab-pane">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <!--  Single Grid product Start -->
+                            <div class="single-grid-product mb-40">
+                                <div class="product-image">
+                                    <a href="single-product.html">
+                                        <img src="assets/images/product/product-9.jpg" class="img-fluid" alt="">
+                                        <img src="assets/images/product/product-10.jpg" class="img-fluid" alt="">
+                                    </a>
+
+                                    <div class="product-action">
+                                        <ul>
+                                            <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
+                                            <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title"> <a href="single-product.html">Normal Dining chair</a></h3>
+                                    <p class="product-price"><span class="discounted-price">$130.00</span> </p>
+                                </div>
+                            </div>
+                            <!--  Single Grid product End -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <!--  Single Grid product Start -->
+                            <div class="single-grid-product mb-40">
+                                <div class="product-image">
+                                    <div class="product-label">
+                                        <span class="sale">Sale</span>
+                                    </div>
+                                    <a href="single-product.html">
+                                        <img src="assets/images/product/product-11.jpg" class="img-fluid" alt="">
+                                        <img src="assets/images/product/product-12.jpg" class="img-fluid" alt="">
+                                    </a>
+
+                                    <div class="product-action">
+                                        <ul>
+                                            <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
+                                            <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title"> <a href="single-product.html">Tripod lampshade</a></h3>
+                                    <p class="product-price"><span class="discounted-price">$210.00</span> <span class="main-price discounted">$240.00</span></p>
+                                </div>
+                            </div>
+                            <!--  Single Grid product End -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <!--  Single Grid product Start -->
+                            <div class="single-grid-product mb-40">
+                                <div class="product-image">
+                                    <a href="single-product.html">
+                                        <img src="assets/images/product/product-10.jpg" class="img-fluid" alt="">
+                                        <img src="assets/images/product/product-13.jpg" class="img-fluid" alt="">
+                                    </a>
+
+                                    <div class="product-action">
+                                        <ul>
+                                            <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
+                                            <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title"> <a href="single-product.html">Hot Design Table</a></h3>
+                                    <p class="product-price"><span class="discounted-price">$250.00</span> <span class="main-price discounted">$280.00</span></p>
+                                </div>
+                            </div>
+                            <!--  Single Grid product End -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <!--  Single Grid product Start -->
+                            <div class="single-grid-product mb-40">
+                                <div class="product-image">
+                                    <a href="single-product.html">
+                                        <img src="assets/images/product/product-14.jpg" class="img-fluid" alt="">
+                                    </a>
+
+                                    <div class="product-action">
+                                        <ul>
+                                            <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
+                                            <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title"> <a href="single-product.html">Outdoor Lock Chair</a></h3>
+                                    <p class="product-price"><span class="discounted-price">$180.00</span></p>
+                                </div>
+                            </div>
+                            <!--  Single Grid product End -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <!--  Single Grid product Start -->
+                            <div class="single-grid-product mb-40">
+                                <div class="product-image">
+                                    <div class="product-label">
+                                        <span class="sale">New</span>
+                                    </div>
+                                    <a href="single-product.html">
+                                        <img src="assets/images/product/product-14.jpg" class="img-fluid" alt="">
+                                        <img src="assets/images/product/product-13.jpg" class="img-fluid" alt="">
+                                    </a>
+
+                                    <div class="product-action">
+                                        <ul>
+                                            <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
+                                            <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title"> <a href="single-product.html">Classic Chair</a></h3>
+                                    <p class="product-price"><span class="discounted-price">$60.00</span> </p>
+                                </div>
+                            </div>
+                            <!--  Single Grid product End -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <!--  Single Grid product Start -->
+                            <div class="single-grid-product mb-40">
+                                <div class="product-image">
+                                    <a href="single-product.html">
+                                        <img src="assets/images/product/product-15.jpg" class="img-fluid" alt="">
+                                        <img src="assets/images/product/product-16.jpg" class="img-fluid" alt="">
+                                    </a>
+
+                                    <div class="product-action">
+                                        <ul>
+                                            <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
+                                            <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title"> <a href="single-product.html">Classic Chair Wodden</a></h3>
+                                    <p class="product-price"><span class="discounted-price">$183.00</span> <span class="main-price discounted">$200.00</span></p>
+                                </div>
+                            </div>
+                            <!--  Single Grid product End -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <!--  Single Grid product Start -->
+                            <div class="single-grid-product mb-40">
+                                <div class="product-image">
+                                    <a href="single-product.html">
+                                        <img src="assets/images/product/product-10.jpg" class="img-fluid" alt="">
+                                    </a>
+
+                                    <div class="product-action">
+                                        <ul>
+                                            <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
+                                            <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title"> <a href="single-product.html">Classic Table Wodden</a></h3>
+                                    <p class="product-price"><span class="discounted-price">$290.00</span></p>
+                                </div>
+                            </div>
+                            <!--  Single Grid product End -->
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <!--  Single Grid product Start -->
+                            <div class="single-grid-product mb-40">
+                                <div class="product-image">
+                                    <a href="single-product.html">
+                                        <img src="assets/images/product/product-16.jpg" class="img-fluid" alt="">
+                                        <img src="assets/images/product/product-2.jpg" class="img-fluid" alt="">
+                                    </a>
+
+                                    <div class="product-action">
+                                        <ul>
+                                            <li><a href="cart.html"><i class="fa fa-cart-plus"></i></a></li>
+                                            <li><a href="#quick-view-modal-container" data-toggle="modal" title="Quick View"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="wishlit.html"><i class="fa fa-heart-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title"> <a href="single-product.html">Miniature Almari</a></h3>
+                                    <p class="product-price"><span class="discounted-price">$230.00</span> <span class="main-price discounted">$250.00</span></p>
+                                </div>
+                            </div>
+                            <!--  Single Grid product End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!--Product section end-->
+
+
+
+
+    <!-- Banner section start -->
+    <div class="banner-section section pb-40 pb-sm-30 pb-xs-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <!-- Single Banner Start -->
+                    <div class="single-banner-item mb-30">
+                        <div class="banner-image">
+                            <a href="shop.html">
+                                <img src="assets/images/banner/banner8.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="discount-banner-content">
+                            <h3>Flash Sale <br> <span>59%</span> <br> Discount</h3>
+                        </div>
+                    </div>
+                    <!-- Single Banner End -->
+                </div>
+                <div class="col-lg-8 col-md-12 col-sm-12">
+                    <!-- Single Banner Start -->
+                    <div class="single-banner-item mb-30 bg-image" data-bg="assets/images/banner/banner9.jpg">
+                        <div class="sp-banner-content content-right">
+                            <span class="normat-text">UP TO 50%</span>
+                            <h2 class="title">TV Cabinet</h2>
+                            <span class="normat-text">GRAB IT NOW!</span>
+                            <div class="countdown-area">
+                                <div class="product-countdown" data-countdown="2019/06/01"></div>
+                            </div>
+                            <a href="shop.html">SHOP NOW</a>
+                        </div>
+                    </div>
+                    <!-- Single Banner End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner section End -->
+
+
+    <!--Features section start-->
+    <div class="features-section section pt-30 pt-lg-15 pt-md-0 pt-sm-0 pt-xs-15">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <!-- Single Feature Start -->
+                    <div class="single-feature mb-30">
+                        <div class="feature-image">
+                            <img src="assets/images/icons/feature-1.png" class="img-fluid" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="title">Free home delivery</h4>
+                            <p class="short-desc">Provide free home delivery for the all product over $100 </p>
+                        </div>
+                    </div>
+                    <!-- Single Feature End -->
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <!-- Single Feature Start -->
+                    <div class="single-feature mb-30">
+                        <div class="feature-image">
+                            <img src="assets/images/icons/feature-2.png" class="img-fluid" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="title">Quality Products</h4>
+                            <p class="short-desc">We ensure the product quality that is our main goal </p>
+                        </div>
+                    </div>
+                    <!-- Single Feature End -->
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <!-- Single Feature Start -->
+                    <div class="single-feature mb-30">
+                        <div class="feature-image">
+                            <img src="assets/images/icons/feature-3.png" class="img-fluid" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="title">3 Days Return</h4>
+                            <p class="short-desc">Provide free home delivery for the all product over $100 </p>
+                        </div>
+                    </div>
+                    <!-- Single Feature End -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--Features section end-->
+
+    <!--Brand section start-->
+    <div class="brand-section section pb-100 pb-lg-80 pb-md-70 pb-sm-60 pb-xs-50">
+        <div class="container">
+            <div class="row">
+                <div class="brand-slider section">
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="data/upload/slider.jpg" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="data/upload/slider2.jpg" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="assets/images/brands/brand-3.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="assets/images/brands/brand-4.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="assets/images/brands/brand-5.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="assets/images/brands/brand-1.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="assets/images/brands/brand-2.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="assets/images/brands/brand-3.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="assets/images/brands/brand-4.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                    <div class="col">
+                        <!-- Single Brand Start -->
+                        <div class="single-brand">
+                            <div class="brand-image">
+                                <img src="assets/images/brands/brand-5.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Single Brand End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Brand section end-->
+
+
+    <%- include('../partials/footer')%>

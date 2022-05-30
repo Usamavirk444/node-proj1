@@ -1,0 +1,144 @@
+<%- include('../partials/header')%>
+
+    <!-- Page Banner Section Start -->
+    <div class="page-banner-section section bg-image" data-bg="assets/images/bg/breadcrumb.png">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <div class="page-banner text-left">
+                        <h2>Login Register</h2>
+                        <ul class="page-breadcrumb">
+                            <li><a href="index.html">Home</a></li>
+                            <li>Login Register</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Banner Section End -->
+    <!--Login Register section start-->
+    <div class="login-register-section section pt-90 pt-lg-70 pt-md-60 pt-sm-55 pt-xs-45  pb-70 pb-lg-50 pb-md-40 pb-sm-30 pb-xs-20">
+        <div class="container">
+            <div class="row">
+                <!--Login Form Start-->
+                <div class="col-md-6 col-sm-6">
+                    <div class="customer-login-register">
+                        <div class="form-login-title">
+                            <h2>Login</h2>
+                        </div>
+                        <div class="login-form">
+                            <form id="login">
+                                <div class="form-fild">
+                                    <p><label>email address <span class="required">*</span></label></p>
+                                    <input name="email" type="text">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Password <span class="required">*</span></label></p>
+                                    <input name="password" type="password">
+                                </div>
+                                <div class="login-submit">
+                                    <button type="submit" class="btn">Login</button>
+                                    <label>
+                                            <input class="checkbox" name="rememberme" value="" type="checkbox">
+                                            <span>Remember me</span>
+                                        </label>
+                                </div>
+                                <div class="lost-password">
+                                    <a href="#">Lost your password?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--Login Form End-->
+                <!--Register Form Start-->
+                <div class="col-md-6 col-sm-6">
+                    <div class="customer-login-register register-pt-0">
+                        <div class="form-register-title">
+                            <h2>Register</h2>
+                        </div>
+                        <div class="register-form">
+                            <form id="register">
+                                <div class="form-fild">
+                                    <p><label>Name <span class="required">*</span></label></p>
+                                    <input name="name" type="text">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Email <span class="required">*</span></label></p>
+                                    <input name="email" type="email">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Mobile Number <span class="required">*</span></label></p>
+                                    <input name="phone" type="number">
+                                </div>
+                                <div class="form-fild">
+                                    <p><label>Mobile Number <span class="required">*</span></label></p>
+                                    <input name="password" type="password">
+                                </div>
+                                <div class="register-submit">
+                                    <button type="submit" class="btn">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--Register Form End-->
+            </div>
+        </div>
+    </div>
+    <!--Login Register section end-->
+    <script>
+        let frm = document.getElementById("register");
+        frm.addEventListener("submit", async(e) => {
+            e.preventDefault();
+            const res = await fetch('http://localhost:3002/auth/register', {
+                method: 'post',
+                body: JSON.stringify({
+                    name: frm.name.value,
+                    email: frm.email.value,
+                    phone: frm.phone.value,
+                    password: frm.password.value,
+
+                }),
+                headers: {
+                    'Content-Type': 'Application/json'
+                }
+            })
+            const recive = await res.json()
+            console.log(recive)
+            if (recive.status == ture) {
+                location.assign(`/auth/register`)
+            } else {
+                alert('enter correct email')
+            }
+        })
+
+        // -------------LOGIN-------------
+        const frmm = document.getElementById('login');
+        frmm.addEventListener('submit', async(e) => {
+            e.preventDefault()
+            const data = await fetch('http://localhost:3002/auth/login', {
+                method: 'post',
+                body: JSON.stringify({
+                    email: frmm.email.value,
+                    password: frmm.password.value
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+            const rec = await data.json();
+            console.log(rec.data.isAdmin)
+            if (rec.data.isAdmin == true) {
+                location.assign(`/auth/admin`)
+            } else {
+                location.assign(`/category`)
+            }
+
+        })
+    </script>
+    <%- include('../partials/footer')%>
