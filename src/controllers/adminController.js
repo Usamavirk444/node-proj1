@@ -135,29 +135,21 @@ const viewUpdate = async(req, res) => {
 
 // update of product img
 const updateImg = async(req, res) => {
-    if (req.file == null) {
-        const viewimg = await ProductImg.findByPk(req.params.id)
-        const specImg = viewimg.defaul_image
-        console.log(specImg)
-        const afterupdate = await ProductImg.update({
+    try {
+        console.log(req.file.filename + " parmas-id: " + req.params.id + " pro_id " + req.body.selctPro)
+
+        const product = req.file.filename
+        const imgUpadate = await ProductImg.update({
             pro_id: req.body.selctPro,
-            defaul_image: specImg
+            defaul_image: product
         }, {
             where: {
                 id: req.params.id
             }
         })
-        res.send(afterupdate)
-    } else {
-        const addIMG = await ProductImg.update({
-            pro_id: req.body.selctPro,
-            defaul_image: req.parmas.id
-        }, {
-            where: {
-                id: req.params.id
-            }
-        })
-        res.send(addIMG)
+        res.send(imgUpadate)
+    } catch (error) {
+        res.send(error)
     }
 }
 
@@ -243,5 +235,6 @@ module.exports = {
     viewSinglePro,
     viewSIgnleCategory,
     viewAllImg,
-    viewUpdate
+    viewUpdate,
+    updateImg
 }

@@ -43,9 +43,8 @@ const updateImg = async(req, res) => {
 
         const makeDetail = await ProductImg.update({
 
-            pro_id: pro_id,
-            img_url: img_url,
-            defaul_image: defaul_image
+            pro_id: req.body.selctPro,
+            defaul_image: product
         }, {
             where: {
                 id: req.params.id

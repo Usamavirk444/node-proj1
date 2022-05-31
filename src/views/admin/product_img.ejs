@@ -190,15 +190,7 @@
             const data = await fetch('http://localhost:3002/admin/add-img', {
                 method: 'post',
                 body: frmData
-                    // body: JSON.stringify({
-                    //     pro_id: frmm.selctPro.value,
-                    //     upload: frmm.upload.value
 
-                // }),
-                // headers: {
-                //     'Content-Type': 'application/json',
-                //     'Accept': 'application/json'
-                // }
             })
             const rec = await data.json();
             console.log(rec)

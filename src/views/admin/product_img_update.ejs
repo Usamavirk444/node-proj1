@@ -52,7 +52,7 @@
                                             <%})%>
 										</select>
                                 </div><br>
-                                <img src="../../data/upload/<%=findpro.defaul_image%>" height="100px" width="100px" alt="no img">
+                                <img src="../../data/upload/<%=findpro.defaul_image%>" width="100px" alt="no img">
                                 <div class="col-md-6">
                                     <label class="form-label">DefaultImage</label>
 
@@ -188,18 +188,10 @@
             e.preventDefault()
             const frmData = new FormData(frmm)
 
-            const data = await fetch('http://localhost:3002/admin/add-img', {
-                method: 'post',
+            const data = await fetch('http://localhost:3002/admin/updateImg/<%=findpro.id%>', {
+                method: 'put',
                 body: frmData
-                    // body: JSON.stringify({
-                    //     pro_id: frmm.selctPro.value,
-                    //     upload: frmm.upload.value
 
-                // }),
-                // headers: {
-                //     'Content-Type': 'application/json',
-                //     'Accept': 'application/json'
-                // }
             })
             const rec = await data.json();
             console.log(rec)
@@ -208,7 +200,7 @@
                 Swal.fire({
 
                     icon: 'success',
-                    title: 'Product Image Has been added',
+                    title: 'Product Image Has been Updated',
                     showConfirmButton: false,
                     timer: 1500
                 })

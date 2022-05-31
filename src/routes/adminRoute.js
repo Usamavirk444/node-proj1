@@ -50,6 +50,10 @@ router
 router
     .route('/update-from_img/:id')
     .get(adminController.viewUpdate)
+    // update with middlewear
+router
+    .route('/updateImg/:id')
+    .put(adminController.uplodFile, adminController.updateImg)
 
 // ======-------CATEGORY---------=========
 

@@ -50,16 +50,16 @@
                                 <% data.forEach((e)=>{%>
                                     <tr>
                                         <td>
-                                            <img src="../data/upload/<%=e.product_image.defaul_image%>" width="70px" alt="">
+                                            <img src="../data/upload/<%=e.product_image.defaul_image%>" width="70px" alt="../public/data/upload/dummy-product.jpg">
                                         </td>
                                         <td>
                                             <%= e.name%>
                                         </td>
 
                                         <td>
-                                            <a class="btn btn-primary bx bx-message-square-edit" href="#"> Edit</a>
+                                            <a class="btn btn-primary bx bx-message-square-edit" href="#"> View</a>
 
-                                            <a class="btn btn-danger ant-design:delete-outlined" href="/product/del/<%= e.id%>">Delete</a>
+                                            <a class="btn btn-danger ant-design:delete-outlined" onclick="delProImg('<%=e.product_image.id%>')">Delete</a>
 
                                             <a id="update" class="btn btn-success" href="/admin/update-from_img/<%= e.product_image.id%>">Update</a></td>
 
@@ -232,16 +232,11 @@
 
 
         // Delete FUnction
-        const frmm = document.getElementById('update');
-        frmm.addEventListener('submit', async(e) => {
-            e.preventDefault()
-            const data = await fetch('http://localhost:3002/product/addproduct', {
+        async function delProImg(e) {
+            const delid = e
+            console.log(delid)
+            const data = await fetch(`http://localhost:3002/productImg/${delid}`, {
                 method: 'delete',
-
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
             })
             const rec = await data.json();
             console.log(rec)
@@ -249,7 +244,7 @@
                 //     location.assign(`/category`)
                 // }
 
-        })
+        }
     </script>
     <!--end switcher-->
     <%- include('../partials/adminFooter')%>
