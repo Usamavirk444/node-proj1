@@ -94,17 +94,21 @@
                                         </p>
                                     </div>
                                     <div class="product-countdown-two" data-countdown2="2020/06/01"></div>
-                                    <!-- <div class="single-product-quantity">
-                                        <form class="add-quantity">
+                                    <div class="single-product-quantity">
+                                        <form id="cart" class="add-quantity">
+
                                             <div class="product-quantity">
-                                                <input value="1" type="number">
-                                            </div> -->
-                                    <div class="add-to-link">
-                                        <a href="/product/checkout/<%= oneProduct.id%>"> <button class="btn"><i class="fa fa-shopping-bag"></i>add to cart</button>
-                                        </a>
+                                                <input value="1" name="qty" type="number">
+                                                <input value="<%= oneProduct.id%>" name="pro_id" type="hidden">
+                                                <input value="<%= oneProduct.price%>" name="price" type="hidden">
+
+                                            </div>
+                                            <div class="add-to-link">
+                                                <a> <button class="btn"><i class="fa fa-shopping-bag"></i>add to cart</button>
+                                                </a>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <!-- </form>
-                                    </div> -->
                                     <div class="wishlist-compare-btn">
                                         <a href="#" class="wishlist-btn">Add to Wishlist</a>
                                         <a href="#" class="add-compare">Compare</a>
@@ -643,4 +647,44 @@
         const cutting = cutingDes.substr(0, 50)
         document.getElementById("limitWords").innerHTML = cutting;
     </script> -->
+    <script>
+        const frmm = document.getElementById('cart');
+        frmm.addEventListener('submit', async(e) => {
+            e.preventDefault()
+            const data = await fetch('http://localhost:3002/cartItem', {
+                method: 'post',
+                body: JSON.stringify({
+                    qty: frmm.qty.value,
+                    pro_id: frmm.pro_id.value,
+                    price: frmm.price.value
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+            const rec = await data.json();
+            console.log(rec)
+                // if (rec) {
+
+            //     Swal.fire({
+
+            //         icon: 'success',
+            //         title: 'Product Has been added',
+            //         showConfirmButton: false,
+            //         timer: 1500
+            //     })
+            //     document.querySelector('form').reset()
+
+            // } else {
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'Oops...',
+            //         text: 'Something went wrong!',
+
+            //     })
+            // }
+
+        })
+    </script>
     <%- include('../partials/footer')%>

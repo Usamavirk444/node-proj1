@@ -27,6 +27,7 @@ const uplodFile = upload.single('product');
 
 // home page of admin
 const homePage = (req, res) => {
+    console.log(res.locals.id)
     res.render('admin/index')
 }
 

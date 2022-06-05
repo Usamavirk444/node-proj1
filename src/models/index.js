@@ -15,19 +15,28 @@ const sequelize = new Sequelize('node_proj1', 'root', '', {
 const db = {}
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-
+// user verify by jwt 
 db.user = require('./authModel')(sequelize, DataTypes)
 
-
+// all about product model
 db.product = require('./productModel')(sequelize, DataTypes)
 db.img = require('./productImageModel')(sequelize, DataTypes)
 db.review = require('./productReviewModel')(sequelize, DataTypes)
 db.specs = require('./productSpecModel')(sequelize, DataTypes)
 
+// category 
 db.category = require('./categoryModel')(sequelize, DataTypes)
 
+//order
 db.order = require('./orderModel')(sequelize, DataTypes)
 db.orderDetail = require('./orderDetailModel')(sequelize, DataTypes)
+
+// CART
+
+db.cart = require('./cartModel')(sequelize, DataTypes)
+db.cartItem = require('./cartItemModel')(sequelize, DataTypes)
+
+// ==============--------ASSOCIATION---------======================
 
 //cate association with product
 db.category.hasMany(db.product, { foreignKey: 'cat_id' });
@@ -51,7 +60,13 @@ db.order.belongsTo(db.user, { foreignKey: 'user_id' });
 db.order.hasMany(db.orderDetail, { foreignKey: 'pro_id' });
 db.orderDetail.belongsTo(db.order, { foreignKey: 'pro_id' });
 
+//cart
+db.cart.hasMany(db.cartItem, { foreignKey: 'cart_id' })
+db.cartItem.belongsTo(db.cart, { foreignKey: 'cart_id' })
 
+//cart
+db.product.hasMany(db.cartItem, { foreignKey: 'pro_id' })
+db.cartItem.belongsTo(db.product, { foreignKey: 'pro_id' })
 
 
 

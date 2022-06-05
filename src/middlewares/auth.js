@@ -16,6 +16,8 @@ const auth = (req, res, next) => {
             } else {
                 // console.log(decoded);
                 res.locals.id = decoded.id
+                    // console.log(res.locals.id)
+
                 next();
             }
         });

@@ -2,18 +2,21 @@ const express = require('express');
 //auth and user
 const authRoute = require('./authRoute')
 const userRoute = require('./userRoute')
-
+    //product
 const productRoute = require('./productRoute')
 const productImg = require('./productImageRoute')
 const productSpecs = require('./productSpecsRoute')
 const productReview = require('./productReviewRoute')
-
+    //category
 const categoryRoute = require('./categoryRoute')
-
+    //order
 const orderRoute = require('./orderRoute')
 const orderDetail = require('./orderDetailRoute')
-
-const adminRoute = require('./adminRoute')
+    //admin
+const adminRoute = require('./adminRoute');
+//cart
+const cart = require('./cartRoute');
+const cartItem = require('./cartItemRoute');
 
 const router = express.Router();
 
@@ -61,6 +64,14 @@ const routes = [
     {
         path: '/admin',
         route: adminRoute
+    },
+    {
+        path: '/cart',
+        route: cart
+    },
+    {
+        path: '/cartItem',
+        route: cartItem
     },
 
 
